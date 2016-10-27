@@ -12,14 +12,14 @@ const PokemonDetail = ({pokemon, children}) => {
   let items;
   let template = (
     <p>loading...</p>
-  )
+  );
   if(pokemon.items) {
     items = pokemon.items;
     template = (
       <ul className="toy-list">
         {pokemon.items.map((item) => <Item key={item.name} item={item}/>)}
       </ul>
-    )
+    );
   }
 
   return (

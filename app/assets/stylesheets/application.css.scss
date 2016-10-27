@@ -82,5 +82,36 @@ li img {
 }
 
 .pokemon-detail {
+	padding: 20px;
+	text-align: center;
 	background-color: #d1ccb6;
+}
+
+.pokemon-detail img {
+	transition: 0.2s all ease-in-out;
+}
+
+.pokemon-detail img:hover {
+	transform: rotate(360deg);
+}
+
+// .pokemon-detail > img:hover {
+// 	transform: rotate3d(1, 1, 0, 360deg);
+// }
+
+.toy-list {
+	display: flex;
+	justify-content: center;
+	height: 100px;
+}
+
+.toy-list li {
+	height: 70px;
+	width: auto;
+	transition: 0.1s all ease-in-out;
+}
+
+.toy-list li:hover {
+	cursor: pointer;
+	height: 100px;
 }
