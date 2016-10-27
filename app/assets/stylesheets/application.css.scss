@@ -41,3 +41,46 @@ header {
 		margin-right: -10px;
 	}
 }
+
+.main-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+aside {
+	flex: 1;
+}
+
+main {
+	flex: 4;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	height: 20px;
+}
+
+li img {
+	height: 100%;
+	width: auto;
+}
+
+.pokemon-index-item {
+	transition: 0.3s all ease-in-out;
+	padding: 4px 0;
+	vertical-align: middle;
+}
+
+.pokemon-index-item:hover {
+	cursor: pointer;
+	background-color: #ccc;
+	// transition: 1s all;
+}
+
+.pokemon-detail {
+	background-color: #d1ccb6;
+}
