@@ -2,7 +2,7 @@ import React from 'react';
 import Item from '../items/item';
 
 const PokemonDetail = ({pokemon, children}) => {
-
+  console.log(pokemon);
   return (
     <div className="pokemon-detail">
       <img src={pokemon.image_url}></img>

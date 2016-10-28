@@ -115,3 +115,51 @@ li img {
 	cursor: pointer;
 	height: 100px;
 }
+
+// Errors
+
+.errors {
+	position: absolute;
+	display: flex;
+	// flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+.errors-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 720px;
+}
+
+.error-enter {
+	opacity: 0.01;
+}
+
+.error-enter.error-enter-active {
+	opacity: 1;
+	transition: opacity 8000ms ease-in-out;
+}
+
+.error {
+	background-color: red;
+	width: 100%;
+	border-radius: 4px;
+	margin: 10px 0;
+	padding: 8px;
+	color: white;
+	text-align: center;
+}
+
+.error-appear {
+  opacity: 0.01;
+}
+.error.one {
+
+}
+.error-appear.error-appear-active:nth-child(4n+1) {
+  opacity: 1;
+  transition: all 3s ease-in-out;
+	transform: rotate3D(0, 1, 0, -7200deg);
+}

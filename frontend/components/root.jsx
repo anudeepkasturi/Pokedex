@@ -7,6 +7,7 @@ import PokemonDetailContainer from './pokemon/pokemon_detail_container';
 import ItemDetailContainer from './items/item_detail_container';
 import PokemonFormContainer from './pokemon/pokemon_form_container';
 
+
 const Root = ({ store }) => {
   const requestOnEnter = () => {
     store.dispatch(requestAllPokemon());

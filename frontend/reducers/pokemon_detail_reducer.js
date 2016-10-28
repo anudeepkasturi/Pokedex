@@ -1,4 +1,5 @@
 import { RECEIVE_POKEMON, RECEIVE_NEW_POKEMON } from '../actions/pokemon_actions';
+import { merge } from 'lodash';
 
 const defaultPokemon = {
   name: '',
@@ -17,7 +18,7 @@ export default (state = defaultPokemon, action) => {
     case RECEIVE_POKEMON:
       return action.pokemon;
     case RECEIVE_NEW_POKEMON:
-      return action.pokemon;
+      return merge(defaultPokemon, action.pokemon);
     default:
       return state;
   }

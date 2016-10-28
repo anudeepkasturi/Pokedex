@@ -17,6 +17,7 @@ class PokemonForm extends React.Component {
     };
     this.update = this.update.bind(this);
     this.handleAddMove = this.handleAddMove.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(property) {
@@ -36,13 +37,28 @@ class PokemonForm extends React.Component {
   }
 
   addMove(move) {
-    console.log(move);
     let newState = merge({}, this.state.form);
     let moves = newState.moves;
     moves.push(move);
     this.setState({form: newState}, () => {
       this.refs.addMoveInput.value = '';
     });
+  }
+
+  removeMove(move) {
+    return e => {
+      e.preventDefault();
+      let newState = merge({}, this.state.form);
+      let moves = newState.moves;
+      const idx = moves.indexOf(move);
+      moves.splice(idx, 1);
+      this.setState({form: newState});
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createPokemon(this.state.form);
   }
 
   render () {
@@ -68,7 +84,7 @@ class PokemonForm extends React.Component {
     return (
       <div className="pokemon-detail">
         <h3>Create a New Pokemon</h3>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <section>
             <label htmlFor="name">Name: </label>
             <input id="name" type="text" onChange={this.update('name')} />
@@ -99,7 +115,9 @@ class PokemonForm extends React.Component {
             <label>Moves:</label>
             <ul>
               {
-                this.state.form.moves.map((move, idx) => <li key={idx}>{move}</li>)
+                this.state.form.moves.map((move, idx) => (
+                  <li key={idx}>{move} <button onClick={this.removeMove(move)}>x</button></li>
+                ))
               }
             </ul>
           </section>
@@ -108,6 +126,7 @@ class PokemonForm extends React.Component {
             <input id="new-move" type="text" ref="addMoveInput"/>
             <button id="add-move" onClick={this.handleAddMove}>Add Move</button>
           </section>
+          <button type="submit">Create</button>
 
         </form>
         {formVal}
